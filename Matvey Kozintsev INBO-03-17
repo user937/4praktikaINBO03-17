@@ -1,0 +1,51 @@
+
+#include<iostream>
+ 
+using namespace std;
+ 
+void sort(int *num, int Size);
+ 
+int main()
+{
+    setlocale(0, "Rus");
+    int Size = 12;
+    int *mas = new int[Size];
+    int art = 1;
+ 	cout << "Исходный массив: " << endl;
+ 	
+    for (int i = 0; i <= Size - 1; i++)
+    {
+        mas[i] = art;
+        cout << mas[i] <<"  " ;
+        art++;
+    }
+    cout << "\nКонечный массив : " << endl;
+    
+    sort(mas,Size);
+    cout << "\n";
+    delete[] mas;
+    system("pause");
+    return 0;
+    
+}
+
+void sort(int *num, int Size)
+{
+    int b, i;
+    bool c;
+    c = true;
+    for (i = 0; i <= Size - 1;)
+    {
+        if ((num[i] % 2 != 0) && (num[i + 1] % 2 == 0))
+        {
+            b = num[i];
+            num[i] = num[i + 1];
+            num[i + 1] = b;
+            cout << num[i] <<"  " << num[i + 1] << "  ";
+            i = i + 2;
+            c = false;
+        }
+        if (c) i++;       
+    }
+}
+
